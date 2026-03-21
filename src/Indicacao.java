@@ -1,2 +1,3 @@
-public class Indicacao {
+public class Indicacao extends Pessoa {
+
 }
