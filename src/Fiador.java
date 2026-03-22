@@ -1,4 +1,5 @@
 import java.util.List;
+// Requisito o
 
 public class Fiador extends Pessoa {
     private Double rendaComprovada;
@@ -12,7 +13,4 @@ public class Fiador extends Pessoa {
         return rendaComprovada;
     }
 
-    public void setRendaComprovada(Double rendaComprovada) {
-        this.rendaComprovada = rendaComprovada;
-    }
 }

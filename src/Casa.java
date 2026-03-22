@@ -11,10 +11,11 @@ public class Casa extends Imovel {
     private Boolean possuiArmarioEmbutido;
     private String descricao;
 
-    public Casa(Endereco endereco, LocalDate dataConstrucao, Double valorSugerido, Double valorReal, Double valorImobiliaria,
-                StatusImovel statusImovel, LocalDate dataCadastro, Integer qtdQuartos, Integer qtdSuites, Integer qtdSalasEstar,
-                Integer qtdSalasJantar, Integer vagasGaragem, Double area, Boolean possuiArmarioEmbutido, String descricao) {
-        super(endereco, dataConstrucao, valorSugerido, valorReal, valorImobiliaria, statusImovel, dataCadastro);
+    public Casa(Endereco endereco, LocalDate dataConstrucao, Double valorSugerido, StatusImovel statusImovel,
+                LocalDate dataAnuncio, LocalDate dataFinalizacao, Integer qtdQuartos, Integer qtdSuites,
+                Integer qtdSalasEstar, Integer qtdSalasJantar, Integer vagasGaragem, Double area,
+                Boolean possuiArmarioEmbutido, String descricao) {
+        super(endereco, dataConstrucao, valorSugerido, statusImovel, dataAnuncio, dataFinalizacao);
         this.qtdQuartos = qtdQuartos;
         this.qtdSuites = qtdSuites;
         this.qtdSalasEstar = qtdSalasEstar;

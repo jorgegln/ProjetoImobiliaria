@@ -14,12 +14,11 @@ public class Apartamento extends Imovel {
     private Double valorCondominio;
     private Boolean portaria24hrs;
 
-    public Apartamento(Endereco endereco, LocalDate dataConstrucao, Double valorSugerido, Double valorReal,
-                       Double valorImobiliaria, StatusImovel statusImovel, LocalDate dataCadastro, Integer qtdQuartos,
-                       Integer qtdSuites, Integer qtdSalasEstar, Integer qtdSalasJantar, Integer vagasGaragem,
-                       Double area, Boolean possuiArmarioEmbutido, String descricao, Integer andar,
-                       Double valorCondominio, Boolean portaria24hrs) {
-        super(endereco, dataConstrucao, valorSugerido, valorReal, valorImobiliaria, statusImovel, dataCadastro);
+    public Apartamento(Endereco endereco, LocalDate dataConstrucao, Double valorSugerido, StatusImovel statusImovel,
+                       LocalDate dataAnuncio, LocalDate dataFinalizacao, Integer qtdQuartos, Integer qtdSuites,
+                       Integer qtdSalasEstar, Integer qtdSalasJantar, Integer vagasGaragem, Double area,
+                       Boolean possuiArmarioEmbutido, String descricao, Integer andar, Double valorCondominio, Boolean portaria24hrs) {
+        super(endereco, dataConstrucao, valorSugerido, statusImovel, dataAnuncio, dataFinalizacao);
         this.qtdQuartos = qtdQuartos;
         this.qtdSuites = qtdSuites;
         this.qtdSalasEstar = qtdSalasEstar;

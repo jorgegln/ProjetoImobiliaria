@@ -9,7 +9,7 @@ public class SalaComercial extends Imovel {
     public SalaComercial(Endereco endereco, LocalDate dataConstrucao, Double valorSugerido, Double valorReal,
                          Double valorImobiliaria, StatusImovel statusImovel, LocalDate dataCadastro, Double area,
                          Integer qtdBanheiros, Integer qtdComodos) {
-        super(endereco, dataConstrucao, valorSugerido, valorReal, valorImobiliaria, statusImovel, dataCadastro);
+        super (endereco, dataConstrucao, dataAnuncio, valorSugerido,statusImovel);
         this.area = area;
         this.qtdBanheiros = qtdBanheiros;
         this.qtdComodos = qtdComodos;

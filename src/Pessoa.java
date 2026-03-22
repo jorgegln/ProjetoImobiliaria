@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pessoa {
     protected String nome;
     protected String cpf;
     protected Endereco endereco;
-    protected List<String> telefones;
+    protected List<String> telefones = new ArrayList<>();
     protected Sexo sexo;
 
     public Pessoa(String nome, String cpf, Endereco endereco, List<String> telefones, Sexo sexo) {

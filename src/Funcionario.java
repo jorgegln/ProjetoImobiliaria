@@ -8,6 +8,7 @@ public class Funcionario extends Pessoa {
     private Double salarioBase;
     private String usuario;
     private String senha;
+    private double comissoesAcumuladas = 0.0;
 
     public Funcionario(String nome, String cpf, Endereco endereco, List<String> telefones, Sexo sexo, LocalDate dataIngresso, String cargo, Double salarioBase, String usuario, String senha) {
         super(nome, cpf, endereco, telefones, sexo);
@@ -16,6 +17,19 @@ public class Funcionario extends Pessoa {
         this.salarioBase = salarioBase;
         this.usuario = usuario;
         this.senha = senha;
+    }
+    // Requisito r
+    public void adicionarComissao(double valor) {
+        this.comissoesAcumuladas += valor;
+    }
+
+    public double calcularSalario(double totalComissoes) {
+        return this.salarioBase + this.comissoesAcumuladas;
+    }
+
+    //Usar quando as comissões do mês anterior tiverem sido pagas
+    public void zerarComissoesMes() {
+        this.comissoesAcumuladas = 0.0;
     }
 
     public LocalDate getDataIngresso() {
