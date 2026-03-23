@@ -39,6 +39,8 @@ public class Cadastro {
                 System.out.println("Opção inválida! Tente um número de 1 a 3.");
                 break;
         }
+        scan.nextLine();
+
         System.out.println("Insira seu telefone contato (ex: (xx)9xxxx-xxxx):");
         String telefone1 = scan.nextLine();
         List<String> telefones = new ArrayList<>();
@@ -57,12 +59,14 @@ public class Cadastro {
             case 2:
                 break;
         }
+        scan.nextLine();
 
         System.out.println("=ENDEREÇO=");
         System.out.println("Insira sua rua (ex: Rua/Av xxxxxx): ");
         String rua = scan.nextLine();
         System.out.println("Insira o número:");
         int numero = scan.nextInt();
+        scan.nextLine();
         System.out.println("Insira o bairro:");
         String bairro = scan.nextLine();
         System.out.println("Insira a cidade:");
@@ -84,6 +88,8 @@ public class Cadastro {
         Double salarioBase = scan.nextDouble();
         System.out.println("Agora, vamos criar o seu login...");
         String usuarioNewUser = "";
+        scan.nextLine();
+
         while (!Main.usuarios.contains(usuarioNewUser)) {
             System.out.println("Insira seu usuário:");
             usuarioNewUser = scan.nextLine();
@@ -98,8 +104,6 @@ public class Cadastro {
         Funcionario novoFuncionario = new Funcionario(nome, cpf, enderecoNewUser, telefones, sexo, dataIngresso, cargo, salarioBase, novoLogin);
         Main.usuarios.add(novoLogin);
         System.out.println("Tudo certo! Seu cadastro foi completado com sucesso!");
-
-        scan.close();
     }
 
     public void CadastrarImovel() {

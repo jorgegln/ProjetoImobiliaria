@@ -1,5 +1,7 @@
 package br.com.jorge.imobiliaria.model;
 
+import br.com.jorge.imobiliaria.main.Main;
+
 import java.time.LocalDate;
 
 public abstract class Transacao {
@@ -9,8 +11,6 @@ public abstract class Transacao {
     protected ClienteUsuario cliente;
     protected Funcionario funcionario;
     protected FormaPagamento formaPagamento;
-
-    private static int geradorContrato = 1;
     protected Double valorReal;
     protected Double valorImobiliaria;
     protected Double valorComissaoFuncionario;
@@ -19,7 +19,7 @@ public abstract class Transacao {
 
 
     public Transacao(Imovel imovel, ClienteUsuario cliente, Funcionario funcionario, FormaPagamento formaPagamento, double valorReal) {
-        this.nroContrato = geradorContrato++;
+        this.nroContrato = Main.geradorContrato++;
         this.dataTransacao = LocalDate.now();
         this.imovel = imovel;
         this.cliente = cliente;
@@ -31,6 +31,8 @@ public abstract class Transacao {
         this.valorImobiliaria = valorReal * (taxaImobiliaria / 100);
         this.valorComissaoFuncionario = valorReal * (taxaComissaoFuncionario / 100);
         this.funcionario.adicionarComissao(this.valorComissaoFuncionario);
+
+        Main.transacoes.add(this);
 
     }
 
