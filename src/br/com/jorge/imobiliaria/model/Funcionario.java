@@ -63,13 +63,17 @@ public class Funcionario extends Pessoa {
     }
 
     public void setUsuario(String usuario) {
-        if (Main.usuarios.contains(usuario)) {
-            System.out.println("Usuário já existe.");
+        if (Main.funcionarios.contains(usuario)) {
+            IO.println("Usuário já existe.");
         } else {
             this.usuarioLogin.setUsuario(usuario);
             UsuarioLogin novoLogin = new UsuarioLogin(usuario, this.usuarioLogin.getSenha());
-            Main.usuarios.remove(this.usuarioLogin);
-            Main.usuarios.add(novoLogin);
+            Funcionario funcionarioOldUser = new Funcionario(this.nome, this.cpf, this.endereco, this.telefones,
+                    this.sexo, this.dataIngresso, this.cargo, this.salarioBase, this.usuarioLogin);
+            Funcionario funcionarioNewUser = new Funcionario(this.nome, this.cpf, this.endereco, this.telefones,
+                    this.sexo, this.dataIngresso, this.cargo, this.salarioBase, novoLogin);
+            Main.funcionarios.remove(funcionarioOldUser);
+            Main.funcionarios.add(funcionarioNewUser);
         }
     }
 
@@ -80,7 +84,11 @@ public class Funcionario extends Pessoa {
     public void setSenha(String senha) {
         this.usuarioLogin.setSenha(senha);
         UsuarioLogin novoLogin = new UsuarioLogin(this.usuarioLogin.getUsuario(), senha);
-        Main.usuarios.remove(this.usuarioLogin);
-        Main.usuarios.add(novoLogin);
+        Funcionario funcionarioOldUser = new Funcionario(this.nome, this.cpf, this.endereco, this.telefones,
+                this.sexo, this.dataIngresso, this.cargo, this.salarioBase, this.usuarioLogin);
+        Funcionario funcionarioNewUser = new Funcionario(this.nome, this.cpf, this.endereco, this.telefones,
+                this.sexo, this.dataIngresso, this.cargo, this.salarioBase, novoLogin);
+        Main.funcionarios.remove(funcionarioOldUser);
+        Main.funcionarios.add(funcionarioNewUser);
     }
 }

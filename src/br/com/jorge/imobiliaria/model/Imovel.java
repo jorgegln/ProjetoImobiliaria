@@ -40,8 +40,8 @@ public abstract class Imovel {
         }
 }
 
-    public Endereco getEndereco(Endereco endereco) {
-        return endereco;
+    public Endereco getEndereco() {
+        return this.endereco;
     }
 
     public void setEndereco(Endereco endereco) {
