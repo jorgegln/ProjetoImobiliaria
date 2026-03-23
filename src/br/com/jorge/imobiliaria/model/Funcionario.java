@@ -2,6 +2,7 @@ package br.com.jorge.imobiliaria.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import br.com.jorge.imobiliaria.main.Main;
 // Requisito r
 public class Funcionario extends Pessoa {
 
@@ -58,18 +59,28 @@ public class Funcionario extends Pessoa {
     }
 
     public String getUsuario() {
-        return usuario;
+        return this.usuarioLogin.getUsuario();
     }
 
     public void setUsuario(String usuario) {
-        this.usuario = usuario;
+        if (Main.usuarios.contains(usuario)) {
+            System.out.println("Usuário já existe.");
+        } else {
+            this.usuarioLogin.setUsuario(usuario);
+            UsuarioLogin novoLogin = new UsuarioLogin(usuario, this.usuarioLogin.getSenha());
+            Main.usuarios.remove(this.usuarioLogin);
+            Main.usuarios.add(novoLogin);
+        }
     }
 
     public String getSenha() {
-        return senha;
+        return this.usuarioLogin.getSenha();
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        this.usuarioLogin.setSenha(senha);
+        UsuarioLogin novoLogin = new UsuarioLogin(this.usuarioLogin.getUsuario(), senha);
+        Main.usuarios.remove(this.usuarioLogin);
+        Main.usuarios.add(novoLogin);
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 public class Cliente extends Pessoa {
 
     protected String email;
-    protected EsadoCivil estadoCivil;
+    protected EstadoCivil estadoCivil;
     protected String profissao;
 
     public Cliente(String nome, String cpf, Endereco endereco, List<String> telefones, Sexo sexo, String email,

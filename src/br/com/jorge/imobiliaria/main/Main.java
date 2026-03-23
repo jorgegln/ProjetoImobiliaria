@@ -1,8 +1,10 @@
 package br.com.jorge.imobiliaria.main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import br.com.jorge.imobiliaria.auth.Cadastro;
-import br.com.jorge.imobiliaria.auth.ServicoAutenticacao;
+import br.com.jorge.imobiliaria.auth.*;
+import br.com.jorge.imobiliaria.model.*;
 
 public class Main {
     static void main() {
@@ -16,22 +18,23 @@ public class Main {
              String usuario = scan.nextLine();
              if (usuario.equals("0")) {
                  Cadastro cadastro = new Cadastro();
-                 cadastro.Cadastro();
+                 cadastro.CadastrarFuncionario();
                  continue;
              } else {
                  System.out.println("Digite sua senha:");
                  String senha = scan.nextLine();
-                 if (usuario.equals("admin") && senha.equals("1234")) {
-                     System.out.println("\nLogin realizado com sucesso!");
+                 if (new ServicoAutenticacao().logar(usuario, senha)) {
+                     System.out.println("Login realizado com sucesso!");
 
-                     // A mágica acontece aqui: instanciamos a outra classe e chamamos o menu
                      MenuPrincipal menu = new MenuPrincipal();
-                     menu.exibirMenu();
 
                  } else {
-                     System.out.println("Dados inválidos. Programa encerrado.");
+                     System.out.println("Dados inválidos. Tente novamente.");
+                     continue;
                  }
              }
          }
     }
+
+    public static List<UsuarioLogin> usuarios = new ArrayList<>();
 }
